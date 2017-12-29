@@ -10,12 +10,10 @@ const extname = require('path-complete-extname')
 const webpack = require('webpack')
 
 const { ConfigList, ConfigObject } = require('./config_types')
-const rules = require('./rules')
 const config = require('./config')
 
 const getLoaderList = () => {
   const result = new ConfigList()
-  Object.keys(rules).forEach(key => result.append(key, rules[key]))
   return result
 }
 
