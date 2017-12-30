@@ -4,7 +4,7 @@ const { readFileSync } = require('fs')
 const deepMerge = require('./utils/deep_merge')
 
 const defaultFilePath = require.resolve('../lib/install/config/webpacker.yml')
-const filePath = resolve('config', 'webpacker.yml')
+const filePath = resolve(__dirname, 'config', 'webpacker.yml')
 
 const environment = process.env.NODE_ENV || 'development'
 const defaultConfig = safeLoad(readFileSync(defaultFilePath), 'utf8')[environment]
