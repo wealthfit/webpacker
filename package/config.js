@@ -11,8 +11,6 @@ const defaultConfig = safeLoad(readFileSync(defaultFilePath), 'utf8')[environmen
 const appConfig = safeLoad(readFileSync(filePath), 'utf8')[environment]
 const config = deepMerge(defaultConfig, appConfig)
 
-throw new Error("path"+filePath);
-
 const isBoolean = str => /^true/.test(str) || /^false/.test(str)
 
 const fetch = key =>
@@ -24,7 +22,7 @@ const devServer = (key) => {
   return envValue
 }
 
-if (config && config.dev_server) {
+if (config.dev_server) {
   Object.keys(config.dev_server).forEach((key) => {
     config.dev_server[key] = devServer(key)
   })
