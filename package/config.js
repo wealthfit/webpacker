@@ -6,8 +6,10 @@ const deepMerge = require("./utils/deep_merge");
 const defaultFilePath = require.resolve("../lib/install/config/webpacker.yml");
 const filePath = resolve("config", "webpacker.yml");
 
-const environment = process.env.NODE_ENV || "development";
-console.log("env", environment);
+let environment = process.env.NODE_ENV || "development";
+if (environment === "staging") {
+  environment = "production"; // treat staging as prod build
+}
 const defaultConfig = safeLoad(readFileSync(defaultFilePath), "utf8")[
   environment
 ];
