@@ -6,32 +6,32 @@ module.exports = class extends Environment {
   constructor() {
     super()
 
-    this.plugins.append('ModuleConcatenation', new webpack.optimize.ModuleConcatenationPlugin())
-
-    this.plugins.append('UglifyJs', new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      mangle: {
-        safari10: true
-      },
-      compress: {
-        warnings: false,
-        comparisons: false
-      },
-      output: {
-        comments: false,
-        ascii_only: true
-      }
-    }))
-
-    this.plugins.append('Compression', new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/
-    }))
-
-    this.config.merge({
-      devtool: 'nosources-source-map',
-      stats: 'normal'
-    })
+    // this.plugins.append('ModuleConcatenation', new webpack.optimize.ModuleConcatenationPlugin())
+    //
+    // this.plugins.append('UglifyJs', new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: true,
+    //   mangle: {
+    //     safari10: true
+    //   },
+    //   compress: {
+    //     warnings: false,
+    //     comparisons: false
+    //   },
+    //   output: {
+    //     comments: false,
+    //     ascii_only: true
+    //   }
+    // }))
+    //
+    // this.plugins.append('Compression', new CompressionPlugin({
+    //   asset: '[path].gz[query]',
+    //   algorithm: 'gzip',
+    //   test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/
+    // }))
+    //
+    // this.config.merge({
+    //   devtool: 'nosources-source-map',
+    //   stats: 'normal'
+    // })
   }
 }
