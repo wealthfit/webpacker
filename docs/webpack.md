@@ -142,7 +142,10 @@ environment.loaders.insert('svg', {
       }
     }
   ])
-}, { before: 'file' })
+}, { after: 'file' })
+
+const fileLoader = environment.loaders.get('file')
+fileLoader.exclude = /\.(svg)$/i
 ```
 
 
@@ -151,16 +154,13 @@ environment.loaders.insert('svg', {
 ```js
 // config/webpack/loaders/url.js
 
-const { assetHost } = require('@rails/webpacker')
-
 module.exports = {
   test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
   use: [{
     loader: 'url-loader',
     options: {
       limit: 10000,
-      name: '[name]-[hash].[ext]',
-      publicPath: assetHost.publicPathWithHost
+      name: '[name]-[hash].[ext]'
     }
   }]
 }
